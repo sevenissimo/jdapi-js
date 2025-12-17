@@ -2039,4 +2039,4 @@ export class MyJDApi {
 }
 
 // Expose class globally for non-module environments (browser)
-if (typeof window !== 'undefined') window.JD = MyJDApi;
+if (typeof window !== 'undefined') window.MyJDApi = MyJDApi;

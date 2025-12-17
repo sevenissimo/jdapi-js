@@ -1798,5 +1798,6 @@ REQUEST_URL: ${api}${path}`;
     }
   };
   if (typeof window !== "undefined")
-    window.JD = MyJDApi;
+    window.MyJDApi = MyJDApi;
 })();
+//# sourceMappingURL=jdapi.js.map

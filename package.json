@@ -1,13 +1,19 @@
 {
-  "name": "jdapi",
+  "name": "jdapi-js",
   "version": "1.0.0",
-  "description": "Modern JavaScript port of My.JDownloader API using crypto.subtle",
+  "description": "Modern Async JDownloader API Client",
   "main": "dist/jdapi.min.js",
-  "type": "module",
+  "module": "dist/jdapi.esm.min.js",
+  "files": [
+    "dist/",
+    "src/"
+  ],
   "scripts": {
-    "build": "esbuild src/index.js --bundle --minify --sourcemap --format=esm --outfile=dist/jdapi.min.js --target=esnext",
-    "watch": "esbuild src/index.js --bundle --outfile=dist/jdapi.js --watch",
-    "doc":   "jsdoc src/*.js -R README.md -d docs"
+    "clean": "rm -rf dist",
+    "build:iife": "esbuild src/index.js --bundle --sourcemap --outfile=dist/jdapi.js --target=esnext && esbuild src/index.js --bundle --minify --sourcemap --outfile=dist/jdapi.min.js --target=esnext",
+    "build:esm": "esbuild src/index.js --bundle --sourcemap --format=esm --outfile=dist/jdapi.esm.js --target=esnext && esbuild src/index.js --bundle --minify --sourcemap --format=esm --outfile=dist/jdapi.esm.min.js --target=esnext",
+    "build": "npm run clean && npm run build:iife && npm run build:esm",
+    "docs": "jsdoc src/*.js -R README.md -d docs"
   },
   "keywords": [
     "jdownloader",
