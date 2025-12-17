@@ -1,0 +1,11 @@
+# NPM & Build
+node_modules/
+*.log
+npm-debug.log*
+
+# Documentation
+docs/**
+
+# OS junk
+.DS_Store
+Thumbs.db

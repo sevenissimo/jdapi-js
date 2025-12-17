@@ -1,0 +1,30 @@
+{
+  "name": "jdapi",
+  "version": "1.0.0",
+  "description": "Modern JavaScript port of My.JDownloader API using crypto.subtle",
+  "main": "dist/jdapi.min.js",
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --minify --sourcemap --format=esm --outfile=dist/jdapi.min.js --target=esnext",
+    "watch": "esbuild src/index.js --bundle --outfile=dist/jdapi.js --watch",
+    "doc":   "jsdoc src/*.js -R README.md -d docs"
+  },
+  "keywords": [
+    "jdownloader",
+    "myjdownloader",
+    "myjd",
+    "api",
+    "headless",
+    "es-modules",
+    "crypto-subtle"
+  ],
+  "author": "Sevenissimo",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.19.0",
+    "jsdoc": "^4.0.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
