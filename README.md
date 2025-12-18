@@ -31,26 +31,28 @@ npm install
 ## Usage
 
 ```javascript
-import { MyJDApi } from './myjdapi.js';
+import { MyJDApi } from './dist/jdapi.esm.js';
 
 (async () => {
+    // 1. Initialize the API client
     const api = new MyJDApi();
-    
-    // 1. Set the application key (optional, but recommended)
-    api.setAppKey("My_New_JD_CLient_0.1"); 
-    
-    // 2. Connect using username and password (connection updates devices internally)
+
+    // 2. Set the application key (optional, but recommended)
+    api.setAppKey("My_New_JD_CLient_0.1");
+
+    // 3. Connect using username and password
     await api.connect("email@example.com", "password");
-    
-    // 3. Get a specific device by name (e.g., your PC name)
-    const deviceName = "MyPC";
-    const device = api.getDevice(deviceName); 
-    
-    if (!device) {
-        console.error(`Device not found: ${deviceName}`);
-        return;
-    }
-    
+
+    // Successful connection auto updates the device list
+    // await JD.updateDevices();
+
+    // Retrieve device list from the cache
+    // const devices = api.listDevices();
+
+    // 3. Get a specific device by name or get the first device in the list
+    const deviceName = localStorage.getItem('device') || null;
+    const device = api.getDevice(deviceName);
+
     // 4. Query the packages list from the download queue
     const queryParams = {
         "bytesLoaded" : true,
